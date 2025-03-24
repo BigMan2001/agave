@@ -158,9 +158,9 @@ pub struct ReplicaTransactionInfoV2<'a> {
     /// The transaction's index in the block
     pub index: usize,
 }
-
+use rkyv::{Archive, Deserialize, Serialize};
 /// Information about a transaction, including index in block and post accounts states data
-#[derive(Clone, Debug)]
+#[derive(Archive, Deserialize, Serialize, Clone, Debug)]
 #[repr(C)]
 pub struct ReplicaTransactionInfoV3<'a> {
     /// The first signature of the transaction, used for identifying the transaction.
