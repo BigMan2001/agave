@@ -161,7 +161,7 @@ pub struct ReplicaTransactionInfoV2<'a> {
 use rkyv::{Archive, Deserialize, Serialize};
 /// Information about a transaction, including index in block and post accounts states data
 #[derive(Archive, Deserialize, Serialize, Clone, Debug)]
-#[repr(C)]
+#[archive_attr(derive(CheckBytes))]
 pub struct ReplicaTransactionInfoV3<'a> {
     /// The first signature of the transaction, used for identifying the transaction.
     pub signature: &'a Signature,
